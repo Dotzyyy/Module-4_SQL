@@ -7,6 +7,7 @@ from datetime import datetime, timezone
 
 
 
+
 import sqlalchemy as sa
 
 from config import Config
@@ -38,6 +39,7 @@ from errors import *
 def index():
     form = UserPost()
     if form.validate_on_submit():
+         
          post = Post(body=form.post.data, author=current_user)
          db.session.add(post)
          db.session.commit()
@@ -111,6 +113,11 @@ def edit_info():
     return render_template('edit_info.html', title='Edit Info',
                            form=form)
 
+@app.route('/tasks')
+@login_required
+def tasks():
+    return render_template('tasks.html', title='Task List')
+
 @app.before_request
 def before_request():
      if current_user.is_authenticated:
@@ -166,12 +173,7 @@ def find_user():
     posts = db.session.scalars(query).all()
     return render_template('index.html', title='Explore', posts=posts)      
 
-@bp.route('/user/<username>/popup')
-@login_required
-def user_popup(username):
-    user = db.first_or_404(sa.select(User).where(User.username == username))
-    form = FollowerButton()
-    return render_template('user_popup.html', user=user, form=form)
+
 
 
 if __name__ == '__main__':
