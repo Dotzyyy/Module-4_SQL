@@ -1,0 +1,316 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+
+html {
+    height: 101%;
+    
+}
+
+body {
+    font-family:'Poppins', Arial, Helvetica, sans-serif;
+    background-color: var(--primary-color);
+    background-size: cover;
+    color: var(--text-color);
+    
+    min-height: 100vh;
+    
+    
+    position: relative;
+    
+    
+}
+
+:root{
+    --primary-color: #FAFAFA;
+    --secondary-color: #ADD8E6;
+    --text-color: #3a3a3aa3; 
+    --heading-color: #686363;
+    --link-color: rgb(38, 38, 213);
+    
+}
+.dark-mode {
+    --primary-color: #151128;
+    --secondary-color: #053d4f;
+    --text-color: #ffffff;
+    --heading-color:#cbcbcb;
+    --link-color: cyan;
+}
+
+
+
+main {
+    margin-top: 7rem;
+}
+
+
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--heading-color);
+    
+    
+}
+
+aside {
+    margin-top: 2em;
+}
+
+
+
+article {
+    margin: 2em;
+    
+}
+
+aside {
+    margin-top: 2rem;
+}
+
+/* Navigation and Header CSS */
+
+
+
+
+#site-title {
+    color: var(--heading-color);
+    font-weight: 700;
+    font-size: 3rem;
+    margin-right: auto;
+    margin-left: 2rem;
+    
+}
+
+
+nav {
+    background-color: var(--secondary-color);
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    overflow: auto;
+    text-align: left;
+}
+
+
+
+li {
+    list-style: none;
+    height: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: var(--link-color);
+    
+}
+
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+
+.nav-item {
+    padding-left: 5rem;
+    height: 100%;
+    
+}
+
+.nav-link {
+    color: var(--text-color);
+}
+
+
+.nav-link:hover {
+    color: #000000;
+    background-color: #ffffff;
+    height: 100%;
+    width: 100%;
+    border-radius: 1rem;
+    
+    
+    
+}
+
+
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#color-icon {
+    
+    margin-left: 4.5rem;
+    
+}
+
+aside div p ul {
+    background-color: #000000;
+}
+
+
+.sidebar {
+    background-color: var(--secondary-color);
+}
+
+.side-menu {
+    background-color: #053d4f;
+}
+
+/* media querys */
+
+@media (max-width: 80rem) {
+    header {
+        padding: 0 3rem;
+    }
+}
+
+@media (max-width: 60rem) {
+    header {
+        padding: 0 2rem;
+    }
+   
+}
+
+@media (max-width: 52rem ) {
+
+    header {
+        padding-right: 0;
+        
+    }
+    #site-tital {
+        margin-left: 1rem;
+    }
+    
+    
+    
+}
+
+
+
+
+#color-icon {
+    width: 2em;
+    cursor: pointer;
+}
+
+
+/* Index Page */
+
+
+
+.text-muted {
+    color: var(--text-color);
+}
+
+#scroll-down {
+    color: var(--link-color);
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+/* About Page */
+
+
+
+#faq-section {
+    
+    margin-top: 3rem;
+    margin-bottom: 15rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+#faq-title {
+    font-size: 2.5rem;
+    margin: auto;
+}
+
+.faq {
+    cursor: pointer;
+    max-width: 45rem;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-bottom: 1px solid grey;
+    
+
+}
+
+.question-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.question-title {
+    padding-top: 1.75rem;
+    line-height: 1.6;
+}
+/* Tried display: hidden but it made the containers shorter  */
+.answer-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 1.4s ease;
+}
+
+
+
+.answer {
+    padding-top: 1.2rem;
+    font-size: 1rem ;
+    line-height: 1.6;
+}
+
+.faq.active .answer-container {
+    max-height: 20rem;
+    
+
+}
+
+.faq.active .question-container svg {
+    transform: rotate(180deg);
+}
+
+svg {
+    transition: transform 0.5s ease-in;
+}
+
+
+/* Forms */
+
+.form-bottom {
+    margin-bottom: 37rem;
+}
+
+@media (max-width: 110rem) {
+    .form-bottom {
+        margin-bottom: 28rem;
+    }
+}
+
+@media (max-width: 48rem) {
+    .form-bottom {
+        margin-bottom: auto;
+    }
+}
+
+
+.side-bar {
+    background-color: #053d4f;
+    color: chocolate;
+}

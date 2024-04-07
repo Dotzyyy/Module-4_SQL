@@ -6,6 +6,7 @@ from urllib.parse import urlsplit
 from datetime import datetime, timezone
 
 
+
 import sqlalchemy as sa
 
 from config import Config
@@ -20,38 +21,30 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login.login_view = 'login'
 
-from models import User
-from forms import LoginForm, RegistrationForm, EditInfo
-
-
-#Add a 'login required' feature?
-
-
-
-posts = [
-    
-    {
-        'author': 'David Sexton',
-        'title': 'Board Game 1',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare nibh finibus sapien vehicula, eget pulvinar turpis porttitor.',
-        'date': '10/01/24',
-    },
-
-    {
-        'author': 'David Sexton',
-        'title': 'Board Game 2',
-        'content': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ornare nibh finibus sapien vehicula, eget pulvinar turpis porttitor.',
-        'date': '12/01/24',
-    },
-]
+from models import User, Post
+from forms import LoginForm, RegistrationForm, EditInfo, UserPost, FollowerButton
+from errors import *
 
 
 
-@app.route('/')
-@app.route('/index')
+
+
+
+
+
+@app.route('/', methods=['GET', 'POST'])
+@app.route('/index', methods=['GET', 'POST'])
 @login_required
 def index():
-    return render_template('index.html', title='Home', posts=posts)
+    form = UserPost()
+    if form.validate_on_submit():
+         post = Post(body=form.post.data, author=current_user)
+         db.session.add(post)
+         db.session.commit()
+         flash('Post has been submitted')
+         return redirect(url_for('index'))
+    posts = db.session.scalars(current_user.following_posts()).all()
+    return render_template('index.html', title='Home', form=form, posts=posts)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -97,8 +90,10 @@ def user(username):
      posts = [
           {'author': user, 'body': 'Hello World'},
           {'author': user, 'body': 'Welcome to my page!'}
+
      ]
-     return render_template('my_profile.html', user=user, posts=posts)
+     form = FollowerButton()
+     return render_template('my_profile.html', user=user, posts=posts, form=form) 
 
 @app.route('/edit_info', methods=['GET', 'POST'])
 @login_required
@@ -121,6 +116,62 @@ def before_request():
      if current_user.is_authenticated:
           current_user.last_seen = datetime.now(timezone.utc)
           db.session.commit()
+
+
+@app.route('/follow/<username>', methods=['POST'])
+@login_required
+def follow(username):
+    form = FollowerButton()
+    if form.validate_on_submit():
+        user = db.session.scalar(
+            sa.select(User).where(User.username == username))
+        if user is None:
+            flash(f'User {username} not found.')
+            return redirect(url_for('index'))
+        if user == current_user:
+            flash('You cannot follow yourself!')
+            return redirect(url_for('user', username=username))
+        current_user.follow(user)
+        db.session.commit()
+        flash(f'Now following {username}!')
+        return redirect(url_for('user', username=username))
+    else:
+        return redirect(url_for('index'))
+    
+
+@app.route('/unfollow/<username>', methods=['POST'])
+@login_required
+def unfollow(username):
+    form = FollowerButton()
+    if form.validate_on_submit():
+        user = db.session.scalar(
+            sa.select(User).where(User.username == username))
+        if user is None:
+            flash(f'User {username} not found.')
+            return redirect(url_for('index'))
+        if user == current_user:
+            flash('You cannot unfollow yourself!')
+            return redirect(url_for('user', username=username))
+        current_user.unfollow(user)
+        db.session.commit()
+        flash(f'You are not following {username}.')
+        return redirect(url_for('user', username=username))
+    else:
+        return redirect(url_for('index'))
+
+@app.route('/find_user')
+@login_required
+def find_user():
+    query = sa.select(Post).order_by(Post.timestamp.desc())
+    posts = db.session.scalars(query).all()
+    return render_template('index.html', title='Explore', posts=posts)      
+
+@bp.route('/user/<username>/popup')
+@login_required
+def user_popup(username):
+    user = db.first_or_404(sa.select(User).where(User.username == username))
+    form = FollowerButton()
+    return render_template('user_popup.html', user=user, form=form)
 
 
 if __name__ == '__main__':
