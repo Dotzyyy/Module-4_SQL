@@ -7,6 +7,8 @@
 <h2>{{ current_user.username }}'s Tasks</h2>
 </div>
 
+<hr>
+
 <div class="row">
     <div class="helpText">
      <p id="first_inst">Add items to your list via the input section</p>
@@ -17,14 +19,14 @@
 
 <div class="row">
     <div class="col-12">
-        <input id="newItem" type="text" placeholder="New item..." maxlength="40">
-        <button class="submit"><i class="fas fa-pencil-alt"></i></button>
+        <input id="inputBar" type="text" placeholder="New item..." maxlength="40">
+        <button id="submit"><i class="fas fa-pencil-alt"></i></button>
     </div>    
 </div>
 
 <div class="row">
     <div class="allItems">
-        <ul class="task-list-items col-12 offset-0 col-sm-8 offset-sm-2">
+        <ul id="taskList">
         </ul>
     </div>
 </div>

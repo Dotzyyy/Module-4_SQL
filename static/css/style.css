@@ -213,7 +213,9 @@ aside div p ul {
     cursor: pointer;
 }
 
-
+.blogPost {
+    width: 4rem;
+}
 
 
 
@@ -240,7 +242,7 @@ aside div p ul {
     
 }
 
-.submit {
+#submit {
     border: none;
 	padding: 0.3rem 0.75rem;
 	border-radius: 0.3rem;
@@ -251,26 +253,59 @@ aside div p ul {
 	font-weight: normal;
 }
 
-.submit:hover {
+#submit:hover {
     color: blue;
     background-color: #e2eded;
     
 }
 
-#newItem {
+#inputBar {
     border-radius: 0.3rem;
 	min-width: 40%;
 	padding: 0.5rem;
 	border: none;
 }
 
-li > button {
+#taskList > li {
+    padding: 10px 20px;
+	
+	text-transform: capitalize;
+	font-weight: 600;
+	border: 0.10rem solid #afbabc;
+	border-radius: 0.3rem;
+	margin-bottom: 0.7rem;
+    margin-top: 0.7rem;
+	
+	
+}
+#taskList > li:hover {
+    background-color: rgb(111, 242, 137);
+    cursor: pointer;
+}
+
+#taskList > li > button {
 	font-weight: normal;
 	background: none;
 	border: none;
 	float: right;
-	color: #025f70;
+	color: #000000;
 	font-weight: 800;
+}
+
+#taskList > li > button:hover {
+    color: #666666;
+    cursor: pointer;
+}
+
+.finished {
+    background: rgb(80, 241, 112);
+    
+}
+
+
+
+.delete {
+    display: none;
 }
 
 

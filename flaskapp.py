@@ -89,11 +89,7 @@ def register():
 @login_required
 def user(username):
      user = db.first_or_404(sa.select(User).where(User.username == username))
-     posts = [
-          {'author': user, 'body': 'Hello World'},
-          {'author': user, 'body': 'Welcome to my page!'}
-
-     ]
+     posts = db.session.scalars(current_user.following_posts()).all()
      form = FollowerButton()
      return render_template('my_profile.html', user=user, posts=posts, form=form) 
 

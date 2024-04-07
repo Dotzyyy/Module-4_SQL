@@ -40,7 +40,7 @@ class EditInfo(FlaskForm):
 
 
 class UserPost(FlaskForm):
-        post = TextAreaField("What's new?", validators=[DataRequired(), Length(min=1, max=140)])
+        post = TextAreaField(validators=[DataRequired(), Length(min=1, max=140)])
         submit = SubmitField('Submit')
 
 
