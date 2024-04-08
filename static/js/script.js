@@ -1,26 +1,26 @@
 
 function currentTime(){
     let date = new Date();
-    let hh = date.getHours();
-    let mm = date.getMinutes();
-    let ss = date.getSeconds();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    let seconds = date.getSeconds();
     let session = "AM";
 
 
-    if(hh == 0){
-        hh = 12
+    if(hours == 0){
+        hours = 12
     }
 
-    if(hh > 12){
-        hh = hh - 12;
+    if(hours > 12){
+        hours = hours - 12;
         session = "PM";
     }
 
-    hh = (hh < 10) ? "0" + hh : hh;
-    mm = (mm < 10) ? "0" + mm : mm;
-    ss = (ss < 10) ? "0" + ss : ss;
+    hours = (hours < 10) ? "0" + hours : hours;
+    minutes = (minutes < 10) ? "0" + minutes : minutes;
+    seconds = (seconds < 10) ? "0" + seconds : seconds;
 
-    let time = hh + ":" + mm + ":" + ss + " " + session;
+    let time = hours + ":" + minutes + ":" + seconds + " " + session;
 
     document.getElementById("clock").innerText = time; 
     let t = setTimeout(function(){ currentTime() }, 1000);
@@ -43,13 +43,18 @@ function listLength(){
     return item.length;
 }
 
+
 function createListItem() {
+    
+    // Creates an element li to add to the list
+    
     let li = document.createElement("li")
     li.appendChild(document.createTextNode(input.value));
     ul.appendChild(li);
     input.value = "";
 
     // Completed Item on list
+   
     function taskComplete() {
         li.classList.toggle("finished");
     }

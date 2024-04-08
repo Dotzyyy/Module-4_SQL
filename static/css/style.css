@@ -21,25 +21,20 @@ body {
 }
 
 :root{
-    --primary-color: #FAFAFA;
-    --secondary-color: #ADD8E6;
-    --text-color: #3a3a3aa3; 
-    --heading-color: #686363;
+    --primary-color: #faf0e6;
+    --secondary-color: #d9b99b;
+    --text-color: #151414a3; 
+    --heading-color: #494343;
     --link-color: rgb(38, 38, 213);
     
 }
-.dark-mode {
-    --primary-color: #151128;
-    --secondary-color: #053d4f;
-    --text-color: #ffffff;
-    --heading-color:#cbcbcb;
-    --link-color: cyan;
-}
+
 
 
 
 main {
-    margin-top: 7rem;
+    margin-top: 5rem;
+    margin-bottom: 19rem;
 }
 
 
@@ -51,9 +46,7 @@ h1, h2, h3, h4, h5, h6 {
     
 }
 
-aside {
-    margin-top: 2em;
-}
+
 
 
 
@@ -68,23 +61,26 @@ aside {
 
 /* Navigation and Header CSS */
 
-
+#clock {
+    font-weight: 500;
+    align-items: center;
+}
 
 
 #site-title {
     color: var(--heading-color);
-    font-weight: 700;
+    font-weight: 200;
     font-size: 3rem;
     margin-right: auto;
     margin-left: 2rem;
-    
+    margin-bottom: 0;
 }
 
 
 nav {
     background-color: var(--secondary-color);
     margin: 0;
-    padding: 2rem;
+    padding: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -155,7 +151,10 @@ aside div p ul {
 
 
 .sidebar {
-    background-color: var(--secondary-color);
+    
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(0.5em);
+    
 }
 
 .side-menu {
@@ -166,21 +165,26 @@ aside div p ul {
 
 @media (max-width: 80rem) {
     header {
-        padding: 0 3rem;
+        padding: 0.3rem;
     }
 }
 
-@media (max-width: 60rem) {
+@media (max-width: 62rem) {
     header {
-        padding: 0 2rem;
+        padding: 0.2rem;
     }
-   
+    .nav-link {
+        color: #ffffff;
+    }
+    .offcanvas-title {
+        color: #ffffff;
+    }
 }
 
 @media (max-width: 52rem ) {
 
     header {
-        padding-right: 0;
+        padding-right:0;
         
     }
     #site-tital {
@@ -194,24 +198,16 @@ aside div p ul {
 
 
 
-#color-icon {
-    width: 2em;
-    cursor: pointer;
-}
+
 
 
 /* Index Page */
 
 
 
-.text-muted {
-    color: var(--text-color);
-}
 
-#scroll-down {
-    color: var(--link-color);
-    cursor: pointer;
-}
+
+
 
 .blogPost {
     width: 4rem;
@@ -359,7 +355,3 @@ svg {
 }
 
 
-.side-bar {
-    background-color: #053d4f;
-    color: chocolate;
-}
