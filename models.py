@@ -7,7 +7,7 @@ from flask_login import UserMixin
 from hashlib import md5
 
 
-from flaskapp import db, login
+from app import db, login
 
 
 followers = sa.Table('followers',db.metadata, sa.Column('follower_id', sa.Integer, sa.ForeignKey('user.id'),
