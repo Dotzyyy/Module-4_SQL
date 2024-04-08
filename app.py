@@ -14,16 +14,18 @@ from config import Config
 
 
 
-
 app = Flask(__name__)
 app.config.from_object(Config)
+
 login = LoginManager(app)
 
-migrate = Migrate(app, db)
-login.login_view = 'login'
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql://david_sexton:xvzBRkawcGGQAdFiiqxjqVoHJpigL33U@dpg-coa5stsf7o1s73dku450-a/flask_db_9euf' )
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
+migrate = Migrate(app, db)
+
+login.login_view = 'login'
+
+
+
 
 from models import User, Post
 from forms import LoginForm, RegistrationForm, EditInfo, UserPost, FollowerButton
