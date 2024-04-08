@@ -3,7 +3,7 @@ os.environ['DATABASE_URL'] = 'sqlite://'
 
 from datetime import datetime, timezone, timedelta
 import unittest
-from flaskapp import app, db
+from app import app, db
 from models import User, Post
 
 
