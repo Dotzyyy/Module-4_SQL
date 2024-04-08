@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 
 
 
-import os
+
 import sqlalchemy as sa
 
 from config import Config
