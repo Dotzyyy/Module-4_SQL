@@ -1,4 +1,5 @@
 import os
+
 from sqlalchemy import create_engine
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or '961fc2bb17a331c5c14847e730850e4d'
@@ -12,3 +13,4 @@ class Config:
         connection_string = os.environ.get('DATABASE_URL', default_connection_string  )
 
         
+    engine = create_engine(connection_string, echo=True)
