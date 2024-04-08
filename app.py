@@ -14,18 +14,13 @@ from config import Config
 
 
 
+
 app = Flask(__name__)
 app.config.from_object(Config)
-
 login = LoginManager(app)
-
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
-
 login.login_view = 'login'
-
-
-
 
 from models import User, Post
 from forms import LoginForm, RegistrationForm, EditInfo, UserPost, FollowerButton

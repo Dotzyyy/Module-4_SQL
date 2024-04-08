@@ -8,7 +8,7 @@ class Config:
     default_connection_string = "postgresql://postgres:password@localhost:5432/flask_db"
     
     if os.environ.get('RENDER'):
-        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'postgresql://david_sexton:xvzBRkawcGGQAdFiiqxjqVoHJpigL33U@dpg-coa5stsf7o1s73dku450-a/flask_db_9euf')
+        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'postgres://david_sexton:xvzBRkawcGGQAdFiiqxjqVoHJpigL33U@dpg-coa5stsf7o1s73dku450-a.frankfurt-postgres.render.com/flask_db_9euf')
 
     else:
         SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', default_connection_string )
