@@ -2,7 +2,7 @@
 ## python-flask-app w/ postgres sql
 Flask Blog 2
 Render Url: https://fullstack-python-flask-app.onrender.com/
-Github Url: https://github.com/Dotzyyy/Module-3-python-flaskapp
+Github Url: https://github.com/Dotzyyy/Module-4_SQL
 
 ## Concept
 
@@ -25,7 +25,7 @@ Featured Languages:
 
 Featured Technologies:
 
-* Postgresel
+* Postgresql
 
 * pgadmin
 
@@ -56,7 +56,7 @@ Featured Technologies:
 
 I would love to add more functionality and QOL features for user in the future.
 
-## How to Deploy/Access
+## How to Deploy/Access the main website
 
 ### Step 1:
 
@@ -103,3 +103,9 @@ On the following form, ensure that:
 ### Step 7:
 
 Use the provided Url to access the website!:
+    https://module-4-sql.onrender.com/
+
+
+## How to Deploy the server
+
+

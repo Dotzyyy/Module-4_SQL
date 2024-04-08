@@ -1,2 +1,2 @@
 FLASK_APP=flaskapp.py
-FLASK_DEBUG=True
+FLASK_DEBUG=False
