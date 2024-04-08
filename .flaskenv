@@ -1,2 +1,3 @@
 FLASK_APP=app.py
 FLASK_DEBUG=False
+RENDER=true
