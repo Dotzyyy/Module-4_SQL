@@ -17,6 +17,7 @@ from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://david_sexton:xvzBRkawcGGQAdFiiqxjqVoHJpigL33U@dpg-coa5stsf7o1s73dku450-a/flask_db_9euf'
 login = LoginManager(app)
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
