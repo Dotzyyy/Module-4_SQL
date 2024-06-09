@@ -1,3 +1,3 @@
 FLASK_APP=app.py
 FLASK_DEBUG=False
-ENV=local
+RENDER=
