@@ -106,6 +106,8 @@ Use the provided Url to access the website!:
     https://module-4-sql.onrender.com/
 
 
-## How to Deploy the server
+
+### Step 8:
+
 
 
