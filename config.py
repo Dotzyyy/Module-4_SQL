@@ -4,11 +4,11 @@ class Config:
     
     if os.environ.get('ENV') == 'local':
 
-        SQLALCHEMY_DATABASE_URI = os.environ.get('LOCAL_DATABASE_URL')
+        SQLALCHEMY_DATABASE_URI = os.environ.get('LOCAL_DATABASE_URL','postgresql://postgres:password@localhost:5432/flask_db')
     
     else:
 
-        SQLALCHEMY_DATABASE_URI = os.environ.get('RENDER_DATABASE_URL')
+        SQLALCHEMY_DATABASE_URI = os.environ.get('RENDER_DATABASE_URL', 'postgresql://flask_db_d6ml_user:DlJLp9X8q21fl9RBoZP8Y5zkTXDdgVVk@dpg-cpiq6oi1hbls73bl78j0-a/flask_db_d6ml')
 
     
 
