@@ -9,7 +9,7 @@ class Config:
     
     else:
 
-        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL','postgresql://postgres:password@localhost:5432/flask_db')
+        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL','postgresql://davidsexton:hFNESpygwyQd4DMpWiBliSWZRbmwibRY@dpg-cpisitkf7o1s73bm97o0-a.frankfurt-postgres.render.com/flask_project_db_e6in')
 
     
 
