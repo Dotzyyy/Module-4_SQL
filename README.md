@@ -64,7 +64,7 @@ One of three options:
 
 * Upload the project folder to your own github.
 
-* Clone this git repository at https://github.com/Dotzyyy/Module-3-python-flaskapp
+* Clone this git repository at https://github.com/Dotzyyy/Module-4_SQL
 
 * Access via the provided URL https://fullstack-python-flask-app.onrender.com/
 
