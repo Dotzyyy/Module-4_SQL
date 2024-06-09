@@ -4,7 +4,7 @@ class Config:
     
     if os.environ.get('RENDER'):
         
-        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'postgresql://flask_db_d6ml_user:DlJLp9X8q21fl9RBoZP8Y5zkTXDdgVVk@dpg-cpiq6oi1hbls73bl78j0-a/flask_db_d6ml')
+        SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'postgresql://davidsexton:hFNESpygwyQd4DMpWiBliSWZRbmwibRY@dpg-cpisitkf7o1s73bm97o0-a/flask_project_db_e6in')
         
     
     else:
