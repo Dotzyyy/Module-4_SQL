@@ -100,7 +100,7 @@ Use the flask shell to type db.create_all() and perform all the neccesary migrat
 ### Step 7:
 At this point you'll need to have created to webservice so return to this step once that is complete.
 
-Place an environment variable in the web service's environment tab called 'DATABASE_URL' and paste the Internal URL from the render database.
+Place an environment variable in the web service's environment tab called 'DATABASE_URL' and paste the Internal URL from the render database. Also create another variable named 'RENDER' with its value being 'true.
 Do not forget that the address should begin with 'postgres'!
 
 *Example: 'postgresql://davidsexton:hFNESpygwyQd4DMpWiBliSWZRbmwibRY@dpg-cpisitkf7o1s73bm97o0-a/flask_project_db_e6in' NOT ''postgres://davidsexton:hFNESpygwyQd4DMpWiBliSWZRbmwibRY@dpg-cpisitkf7o1s73bm97o0-a/flask_project_db_e6in'
