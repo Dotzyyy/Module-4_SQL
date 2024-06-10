@@ -245,6 +245,7 @@ aside div p ul {
 	color: #202021;
 	background-color: #cad5d5;
     transition: all 0.75s ease;
+    margin-top: 0.5rem;
 	
 	font-weight: normal;
 }
